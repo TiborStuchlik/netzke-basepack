@@ -61,7 +61,7 @@ module Netzke::Basepack::DataAdapters
         relation = relation.includes(assoc.to_sym).references(assoc.to_sym) if method
       end
 
-      relation.count
+      relation.except(:select).count
     end
 
     def get_assoc_property_type assoc_name, prop_name
@@ -184,7 +184,8 @@ module Netzke::Basepack::DataAdapters
     end
 
     def human_attribute_name(name)
-      @model.human_attribute_name(name)
+      x = @model.human_attribute_name(name)
+      x
     end
 
     def record_value_for_attribute(r, a, through_association = false)
