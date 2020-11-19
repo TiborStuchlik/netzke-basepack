@@ -10,7 +10,11 @@ module Netzke::Basepack::DataAdapters
     end
 
     def primary_key
-      @model.primary_key.to_s
+      if @model.primary_key
+        @model.primary_key.to_s
+      else
+        'id'
+      end
     end
 
     def model_attributes
