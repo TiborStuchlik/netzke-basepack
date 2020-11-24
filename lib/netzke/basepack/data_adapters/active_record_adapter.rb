@@ -10,6 +10,7 @@ module Netzke::Basepack::DataAdapters
     end
 
     def primary_key
+      #todo toto zrevidovat
       if @model.primary_key
         @model.primary_key.to_s
       else
